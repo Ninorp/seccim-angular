@@ -1,0 +1,10 @@
+<div class='row'>
+    <button type="button" class="btn btn-primary"
+        (click)="liked = !liked">
+        <span *ngIf="!liked; else dislike">Curtir</span>
+        <ng-template #dislike>Descurtir</ng-template>
+    </button>
+    <p *ngIf="liked">
+        Voce Curtiu
+    </p>
+</div>

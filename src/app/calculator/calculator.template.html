@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="row">
+        <div class="col-md-5">
+            <label for='op1' class="label-control" >Valor 1</label>
+            <input type="number" name='op1' class="form-control" [(ngModel)]="v1"/>
+        </div>
+        <div class="col-md-5">
+            <label for='op2' class="label-control" >Valor 2</label>
+            <input type="number" name='op2' class="form-control" [(ngModel)]="v2"/>
+        </div>
+        <div class="col-md-2">
+            <label for="button">Calcular</label>
+            <button role="button" class="btn btn-primary" (click)="efetuaOperacoes()">Ok</button>
+        </div>
+    </div>
+    <div class="row">
+        <p>O resultado da soma é: {{soma}}</p>
+        <p>O resultado da subtração é: {{subtracao}}</p>
+        <p>O resultado da multiplicacao é: {{multiplicacao}}</p>
+        <p>O resultado da divisao é: {{divisao}}</p>
+    </div>
+</div>

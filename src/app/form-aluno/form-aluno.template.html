@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3" style="margin-top: 50px;">
+        <form class="form" #alunoForm="ngForm">
+            <legend>Formulário de Edição de Aluno</legend>
+            <div class="form-group">
+                <label for="nome" class="label-control">Nome</label>
+                <input type="text" required [(ngModel)]='modelAluno.nome' class="form-control" name="nome" #name="ngModel"/>
+                <div class="alert alert-danger" *ngIf="!name.valid && name.touched">
+                    Nome é necessário.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="idade" class="label-control">Idade</label>
+                <input type="number" required [(ngModel)]='modelAluno.idade' class="form-control" name="idade" #idade="ngModel"/>
+                <div class="alert alert-danger" *ngIf="!idade.valid && idade.touched">
+                    Idade é necessário.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="altura" class="label-control">Altura</label>
+                <input type="number" required [(ngModel)]='modelAluno.altura' class="form-control" name="altura" #altura="ngModel"/>
+                <div class="alert alert-danger" *ngIf="!altura.valid && altura.touched">
+                    Altura é necessário.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="peso" class="label-control">Peso</label>
+                <input type="number" required [(ngModel)]='modelAluno.peso' class="form-control" name="peso" #peso="ngModel"/>
+                <div class="alert alert-danger" *ngIf="!peso.valid && peso.touched">
+                    Peso é necessário.
+                </div>
+            </div>
+            <div class="form-group pull-right">
+                <button type="reset" class="btn btn-danger">Apagar</button>
+                <button type="button" class="btn btn-primary" [disabled]="!alunoForm.form.valid" (click)="fetchData(alunoForm)">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <h3>Lista de Alunos</h3>
+        <ul>
+            <li *ngFor="let aluno of listaAlunos">
+                Nome: {{aluno.nome}} , Idade: {{aluno.idade}}, Altura: {{aluno.altura}}, Peso: {{aluno.peso}}
+            </li>
+        </ul>
+    </div>
+</div>
