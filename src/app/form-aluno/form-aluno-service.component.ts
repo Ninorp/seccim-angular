@@ -5,27 +5,27 @@ import {AlunosService} from '../alunos.service';
 
 @Component({
   selector: 'app-form-aluno',
-  templateUrl:'form-aluno.template.html'
+  templateUrl:'form-aluno.template.html',
+  providers: [AlunosService]
 })
 export class FormAlunoComponent implements OnInit {
 
   modelAluno = new Aluno('Chaves',76,186,92);
   listaAlunos : Aluno[] = [];
 
-  constructor() {
+  constructor(private alunosService:AlunosService) {
+    this.listaAlunos = this.alunosService.getAllAlunos();
   }
 
   ngOnInit() {
   }
 
   fetchData(form: NgForm): void{
-    let newAluno = new Aluno(
-                    form.controls['nome'].value,
-                    form.controls['idade'].value,
-                    form.controls['altura'].value,
-                    form.controls['peso'].value);
     
-    this.listaAlunos.push(newAluno); 
+    this.alunosService.newAluno(form.controls['nome'].value,
+                                form.controls['idade'].value,
+                                form.controls['altura'].value,
+                                form.controls['peso'].value); 
     form.resetForm();               
   }
 }
